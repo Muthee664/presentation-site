@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KindWave</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .bg-green-600 {
+            background-color: #38a169;
+        }
+        .bg-green-700 {
+            background-color: #2f855a;
+        }
+        .bg-green-800 {
+            background-color: #276749;
+        }
+        /* Additional Background Styles */
+        .bg-custom1 {
+            background-image: url("C:\Users\MUTHEE\Downloads\Sightsaers-fundraising-pack-image-580x326.jpg");
+        }
+        .bg-custom2 {
+            background-image: url('https://source.unsplash.com/random/1600x900/?nature');
+        }
+        .bg-custom3 {
+            background-image: url('https://source.unsplash.com/random/1600x900/?city');
+        }
+    </style>
+</head>
+<body class="bg-green-100">
+
+    <!-- Navbar -->
+    <nav class="bg-green-600 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-bold">KindWave</a>
+            <div>
+                <a href="#fundraising" class="text-white mx-2 hover:underline">Fundraising</a>
+                <a href="#projects" class="text-white mx-2 hover:underline">Projects</a>
+                <a href="#" class="text-white mx-2 hover:underline" onclick="openSignUpModal()">Sign Up</a>
+                <span id="userEmail" class="text-white mx-2 hidden"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center h-screen text-white bg-custom1">
+        <div class="flex items-center justify-center h-full bg-opacity-50 bg-black">
+            <div class="text-center animate__animated animate__fadeIn">
+                <h1 class="text-5xl font-bold mb-4">Help Us Make a Difference</h1>
+                <p class="text-xl mb-8">Join our community to support fundraising and various projects.</p>
+                <a href="#fundraising" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundraising Section -->
+    <section id="fundraising" class="py-12 bg-white bg-custom2">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 text-green-700">Fundraising Campaigns</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Campaign Cards -->
+                <div class="bg-green-200 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4">Campaign 1</h3>
+                    <p class="mb-4">Description of the fundraising campaign.</p>
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300" onclick="openModal('Campaign 1')">Donate</button>
+                </div>
+                <div class="bg-green-200 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4">Campaign 2</h3>
+                    <p class="mb-4">Description of the fundraising campaign.</p>
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300" onclick="openModal('Campaign 2')">Donate</button>
+                </div>
+                <div class="bg-green-200 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4">Campaign 3</h3>
+                    <p class="mb-4">Description of the fundraising campaign.</p>
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300" onclick="openModal('Campaign 3')">Donate</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-12 bg-green-100 bg-custom3">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 text-green-700">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Cards -->
+                <div class="bg-green-200 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4">Helping the Homeless</h3>
+                    <p class="mb-4">Description of the project to help the homeless.</p>
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300" onclick="openModal('Helping the Homeless')">Learn More</button>
+                </div>
+                <div class="bg-green-200 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4">Education for All</h3>
+                    <p class="mb-4">Description of the project to provide education for underprivileged children.</p>
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300" onclick="openModal('Education for All')">Learn More</button>
+                </div>
+                <div class="bg-green-200 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4">Environmental Conservation</h3>
+                    <p class="mb-4">Description of the project for environmental conservation.</p>
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300" onclick="openModal('Environmental Conservation')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Modal -->
+    <div id="donationModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg w-1/2 animate__animated animate__fadeIn">
+            <h3 class="text-2xl font-bold mb-4" id="modalTitle">Donate</h3>
+            <form id="donationForm" onsubmit="handleDonation(event)">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-bold mb-2">Name:</label>
+                    <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-bold mb-2">Email:</label>
+                    <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="amount" class="block text-sm font-bold mb-2">Donation Amount:</label>
+                    <input type="number" id="amount" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="paymentMethod" class="block text-sm font-bold mb-2">Payment Method:</label>
+                    <select id="paymentMethod" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="mpesa">M-Pesa</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="creditCard">Credit Card</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button type="submit class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300">Donate</button>
+                    <button type="button" class="text-gray-500 hover:text-gray-700" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signUpModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg w-1/2 animate__animated animate__fadeIn">
+            <h3 class="text-2xl font-bold mb-4">Sign Up</h3>
+            <form id="signUpForm" onsubmit="handleSignUp(event)">
+                <div class="mb-4">
+                    <label for="fullName" class="block text-sm font-bold mb-2">Full Name:</label>
+                    <input type="text" id="fullName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="signupEmail" class="block text-sm font-bold mb-2">Email:</label>
+                    <input type="email" id="signupEmail" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-bold mb-2">Password:</label>
+                    <input type="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300">Sign Up</button>
+                    <button type="button" class="text-gray-500 hover:text-gray-700" onclick="closeSignUpModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Charity Fundraising. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to open donation modal
+        function openModal(campaign) {
+            document.getElementById('modalTitle').innerText = 'Donate to ' + campaign;
+            document.getElementById('donationModal').classList.remove('hidden');
+        }
+
+        // Function to close donation modal
+        function closeModal() {
+            document.getElementById('donationModal').classList.add('hidden');
+        }
+
+        // Function to open sign up modal
+        function openSignUpModal() {
+            document.getElementById('signUpModal').classList.remove('hidden');
+        }
+
+        // Function to close sign up modal
+        function closeSignUpModal() {
+            document.getElementById('signUpModal').classList.add('hidden');
+        }
+
+        // Function to handle donation form submission
+        function handleDonation(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const amount = document.getElementById('amount').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            if (paymentMethod === 'mpesa') {
+                // Handle M-Pesa payment
+                alert('Redirecting to M-Pesa payment gateway...');
+                // Add your M-Pesa API integration here
+            } else if (paymentMethod === 'paypal') {
+                // Handle PayPal payment
+                alert('Redirecting to PayPal payment gateway...');
+                // Add your PayPal API integration here
+            } else if (paymentMethod === 'creditCard') {
+                // Handle credit card payment
+                alert('Redirecting to Credit Card payment gateway...');
+                // Add your credit card API integration here
+            } else {
+                alert('Please select a valid payment method');
+            }
+        }
+
+        // Function to handle sign up form submission
+        function handleSignUp(event) {
+            event.preventDefault();
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('password').value;
+
+            // Display signed up user's email in navbar
+            document.getElementById('userEmail').textContent = email;
+            document.getElementById('userEmail').classList.remove('hidden');
+
+            // Close sign up modal
+            closeSignUpModal();
+        }
+    </script>
+</body>
+</html>
